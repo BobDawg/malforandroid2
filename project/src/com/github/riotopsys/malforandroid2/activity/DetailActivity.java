@@ -38,6 +38,7 @@ public class DetailActivity extends BaseDetailActivity {
 		setContentView(R.layout.detail_activity);
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayShowTitleEnabled(true);
 		
 		if ( savedInstanceState == null ){
 			Intent intent = getIntent();
