@@ -113,5 +113,21 @@
         <item>Anime</item>
         <item>Manga</item>
     </string-array>
-
+    
+	<string name="application_theme">Application Theme</string>
+    
+	<string-array name="themes_pref_list">
+	    <item>MAL For Android Default</item>
+	    <item>Holo Dark</item>
+	    <item>Device Default</item>
+	</string-array>
+	
+	<string name="themes_default_value">R.style.Theme_MAL</string>
+	
+	<string-array name="themes_values_list">
+	    <item>R.style.Theme_MAL</item>
+	    <item>R.style.Theme_MAL_Dark</item>
+	    <item>R.style.Theme_MAL_DeviceDefault</item>
+	</string-array>
+	
 </resources>
