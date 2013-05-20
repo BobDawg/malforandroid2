@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <ListPreference android:entryValues="@array/themes_values_list" android:defaultValue="@string/themes_default_value" android:title="@string/application_theme" android:entries="@array/themes_pref_list" android:key="customTheme"/>
-    
+
+    <PreferenceCategory android:title="@string/appearance" >
+        <ListPreference
+            android:defaultValue="@integer/themes_default_value"
+            android:dialogTitle="@string/choose_app_theme"
+            android:entries="@array/themes_pref_list"
+            android:entryValues="@array/themes_values_list"
+            android:key="theme"
+            android:persistent="true"
+            android:summary="@string/app_theme_pref_summary"
+            android:title="@string/app_theme" >
+        </ListPreference>
+    </PreferenceCategory>
 
 </PreferenceScreen>

@@ -23,6 +23,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -92,6 +93,21 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
+		int theme = R.style.Theme_MAL;
+		switch(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", 2))
+		{
+		case 1:
+			theme = R.style.Theme_MAL;
+			break;
+		case 2:
+			theme = R.style.Theme_MAL_Dark;
+			break;
+		case 3:
+			theme = R.style.Theme_MAL_DeviceDefault;
+			break;
+		}
+		this.setTheme(theme);
+		
 		setContentView(R.layout.main);
 		
 		ActionBar actionBar = getActionBar();
@@ -142,6 +158,23 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 	
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+
+		switch (item.getItemId())
+		{
+		case R.id.refresh_menu_item:
+			AnimeServerInterface.getAnimeList(this);
+			MangaServerInterface.getMangaList(this);
+			if ( !state.loginSet() ){
+				login.show(getSupportFragmentManager(), null);
+			}
+			break;
+		case R.id.preferences_menu_item:
+			Intent intent = new Intent();
+			intent.setClass(HubActivity.this, PrefActivity.class);
+			startActivityForResult(intent, 0);
+			break;
+		}
+		
 		return super.onMenuItemSelected(featureId, item);
 	}
 

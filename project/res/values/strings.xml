@@ -114,20 +114,24 @@
         <item>Manga</item>
     </string-array>
     
-	<string name="application_theme">Application Theme</string>
+	<string name="preferences">Preferences</string>
+	<string name="appearance">Appearance</string>
     
-	<string-array name="themes_pref_list">
+	<string name="app_theme">Application Theme</string>
+	<string name="app_theme_pref_summary">Change the theme. (Requires app restart)</string>
+    
+	<string name="choose_app_theme">Choose an Application Theme</string><string-array name="themes_pref_list">
 	    <item>MAL For Android Default</item>
 	    <item>Holo Dark</item>
 	    <item>Device Default</item>
 	</string-array>
 	
-	<string name="themes_default_value">R.style.Theme_MAL</string>
+	<item name="themes_default_value" type="integer">1</item>
 	
-	<string-array name="themes_values_list">
-	    <item>R.style.Theme_MAL</item>
-	    <item>R.style.Theme_MAL_Dark</item>
-	    <item>R.style.Theme_MAL_DeviceDefault</item>
-	</string-array>
+	<integer-array name="themes_values_list">
+	    <item>1</item>
+	    <item>2</item>
+	    <item>3</item>
+	</integer-array>
 	
 </resources>
