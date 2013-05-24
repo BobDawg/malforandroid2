@@ -23,7 +23,6 @@ import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -93,8 +92,8 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
-		int theme = R.style.Theme_MAL;
-		switch(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", 2))
+		//int theme = R.style.Theme_MAL_Dark;
+		/*switch(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", 2))
 		{
 		case 1:
 			theme = R.style.Theme_MAL;
@@ -105,8 +104,8 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 		case 3:
 			theme = R.style.Theme_MAL_DeviceDefault;
 			break;
-		}
-		this.setTheme(theme);
+		}*/
+		//this.setTheme(theme);
 		
 		setContentView(R.layout.main);
 		
@@ -167,6 +166,9 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 			if ( !state.loginSet() ){
 				login.show(getSupportFragmentManager(), null);
 			}
+			break;
+		case R.id.login_menu_item:
+			login.show(getSupportFragmentManager(), null);
 			break;
 		case R.id.preferences_menu_item:
 			Intent intent = new Intent();

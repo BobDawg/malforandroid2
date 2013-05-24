@@ -120,7 +120,8 @@
 	<string name="app_theme">Application Theme</string>
 	<string name="app_theme_pref_summary">Change the theme. (Requires app restart)</string>
     
-	<string name="choose_app_theme">Choose an Application Theme</string><string-array name="themes_pref_list">
+	<string name="choose_app_theme">Choose an Application Theme</string>
+	<string-array name="themes_pref_list">
 	    <item>MAL For Android Default</item>
 	    <item>Holo Dark</item>
 	    <item>Device Default</item>
