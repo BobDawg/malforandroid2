@@ -25,4 +25,5 @@
     <color name="dark_blue">#1E98D0</color>
     <color name="light_blue">#ABDFF6</color>
     <color name="mid_blue">#8FD4F3</color>
+    <color name="rounded_item_color">?roundedItemColor</color>
 </resources>

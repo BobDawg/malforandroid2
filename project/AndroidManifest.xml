@@ -34,7 +34,7 @@
         android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/Theme.MAL.DeviceDefault" >
+        android:theme="@style/Theme.MAL" >
 
         <!-- android:theme="@android:style/Theme.Holo.Light" -->
         <activity android:name=".activity.HubActivity" >

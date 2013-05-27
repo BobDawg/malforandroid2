@@ -22,7 +22,9 @@ import roboguice.inject.InjectView;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.content.Intent;
+//import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -86,14 +88,20 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 	
 	private SearchView searchView;
 	private MenuItem searchItem;
+
 	private RefreshProgressActionView refreshView;
+	//private SharedPreferences mPrefs;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
-		//int theme = R.style.Theme_MAL_Dark;
-		/*switch(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", 2))
+		//PreferenceManager.setDefaultValues(getBaseContext(), R.xml.preferences, false);
+		//mPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		
+		int theme = R.style.Theme_MAL_Dark;
+		
+		switch(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", getResources().getInteger(R.integer.themes_default_value)))
 		{
 		case 1:
 			theme = R.style.Theme_MAL;
@@ -104,8 +112,9 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 		case 3:
 			theme = R.style.Theme_MAL_DeviceDefault;
 			break;
-		}*/
-		//this.setTheme(theme);
+		}
+		
+		this.setTheme(theme);
 		
 		setContentView(R.layout.main);
 		
@@ -170,11 +179,12 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 		case R.id.login_menu_item:
 			login.show(getSupportFragmentManager(), null);
 			break;
-		case R.id.preferences_menu_item:
-			Intent intent = new Intent();
-			intent.setClass(HubActivity.this, PrefActivity.class);
-			startActivityForResult(intent, 0);
-			break;
+		/*case R.id.preferences_menu_item:
+			Intent intent = new Intent(this, PrefActivity.class);
+			//intent.setClass(HubActivity.this, PrefActivity.class);
+			//startActivityForResult(intent, 0);
+			startActivity(intent);
+			break;*/
 		}
 		
 		return super.onMenuItemSelected(featureId, item);
@@ -275,6 +285,25 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 		transaction.replace(R.id.detail_frame, fragment);
 		transaction.commit();
 	}
+	
+	/*private int getThemePref() {
+		int theme = R.style.Theme_MAL_Dark;
+		
+		switch(mPrefs.getInt("theme", getResources().getInteger(R.integer.themes_default_value)))
+		{
+		case 1:
+			theme = R.style.Theme_MAL;
+			break;
+		case 2:
+			theme = R.style.Theme_MAL_Dark;
+			break;
+		case 3:
+			theme = R.style.Theme_MAL_DeviceDefault;
+			break;
+		}
+		
+		return theme;
+	}*/
 
 	@Override
 	public boolean onNavigationItemSelected(int position, long arg1) {

@@ -19,14 +19,19 @@
     <style name="Theme.MAL" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/Theme.MAL.ActionBar</item>
         <item name="android:windowBackground">@color/light_blue</item>
+        <item name="roundedItemColor">@color/light_blue</item>
     </style>
     
     <style name="Theme.MAL.Dark" parent="@android:style/Theme.Holo">
         <item name="android:actionBarStyle">@style/Theme.MAL.Dark.ActionBar</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="roundedItemColor">@color/black</item>
     </style>
     
     <style name="Theme.MAL.DeviceDefault" parent="@android:style/Theme.DeviceDefault">
         <item name="android:actionBarStyle">@style/Theme.MAL.DeviceDefault.ActionBar</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="roundedItemColor">@color/black</item>
     </style>
 
     <style name="Theme.MAL.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">

@@ -116,6 +116,7 @@
     
 	<string name="preferences">Preferences</string>
 	<string name="appearance">Appearance</string>
+	<string name="change_login">Change Login</string>
     
 	<string name="app_theme">Application Theme</string>
 	<string name="app_theme_pref_summary">Change the theme. (Requires app restart)</string>
