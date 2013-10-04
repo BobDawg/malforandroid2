@@ -16,6 +16,7 @@
 
 package com.github.riotopsys.malforandroid2.database;
 
+import java.lang.ref.WeakReference;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,11 +35,11 @@ public class ReadNameValuePairs extends AsyncTask<String, Void, List<NameValuePa
 		public void onNameValuePairsReady(List<NameValuePair> data );
 	}
 	
-	private Callback callback = null;
+	private WeakReference<Callback> callbackRef = null;
 	private DatabaseHelper dbHelper = null;
 	
 	public ReadNameValuePairs(DatabaseHelper dbHelper,  Callback callback ) {
-		this.callback = callback;
+		callbackRef = new WeakReference<ReadNameValuePairs.Callback>(callback);
 		this.dbHelper = dbHelper;
 	}
 
@@ -67,6 +68,7 @@ public class ReadNameValuePairs extends AsyncTask<String, Void, List<NameValuePa
 	@Override
 	protected void onPostExecute(List<NameValuePair> result) {
 		super.onPostExecute(result);
+		Callback callback = callbackRef.get();
 		if ( callback != null ){
 			callback.onNameValuePairsReady(result);
 		}

@@ -22,6 +22,7 @@ import roboguice.inject.InjectView;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -92,6 +93,8 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 	private SearchView searchView;
 	private MenuItem searchItem;
 	private RefreshProgressActionView refreshView;
+	
+	private AsyncTask<String, Void, List<NameValuePair>> userCredTask;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -115,7 +118,7 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 		setupAnimeAdapter();
 		setupMangaAdapter();
 		
-		new ReadNameValuePairs(getHelper(), this).execute("USER","PASS");
+		
 		
 		if ( !state.isSyncScheduled()){
 			//somehow we hit this point with out starting the sync, so we'll do it now
@@ -131,6 +134,25 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 		}
 		
 		apprater.onAppOpened(this);
+	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		if ( login.isVisible() ){
+			login.dismiss();
+		}
+		if ( userCredTask != null ){
+			userCredTask.cancel(false);
+		}
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		if ( !state.loginSet() ){
+			userCredTask = new ReadNameValuePairs(getHelper(), this).execute("USER","PASS");
+		}
 	}
 	
 	private void setupMangaAdapter() {
@@ -220,7 +242,7 @@ public class HubActivity extends BaseDetailActivity implements Callback, OnQuery
 				state.setPass((String) pair.value);
 			}
 		}
-		if ( !state.loginSet() ){
+		if ( !state.loginSet() && !login.isVisible()){
 			login.show(getSupportFragmentManager(), null);
 		}
 		
