@@ -30,6 +30,7 @@ v1.3.0
 *	changing ViewPagerAdapter to allow for dynamic page configuration
 *	fix for IllegalStateException on backgrounding app before login fragment is opened
 *	guard for npe in BaseRecordAdapter 
+*	changed the way data refresh is handled so that more changes can be caught 
 
 v1.2.1
 
