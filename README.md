@@ -28,6 +28,8 @@ Current contributors can be found under the [Github contributors page][contrib]
 v1.3.0
 
 *	changing ViewPagerAdapter to allow for dynamic page configuration
+*	fix for IllegalStateException on backgrounding app before login fragment is opened
+*	
 
 v1.2.1
 
