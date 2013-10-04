@@ -35,7 +35,6 @@ public class MangaServerInterface extends AbstractServerInterface {
 		return MangaRecord.class;
 	}
 
-	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected Dao getRecordDao() throws SQLException {
@@ -57,10 +56,19 @@ public class MangaServerInterface extends AbstractServerInterface {
 	protected void partialUpdate(BaseRecord original, BaseRecord incomming) {
 		MangaRecord o = (MangaRecord) original;
 		MangaRecord i = (MangaRecord) incomming;
-		o.read_status = i.read_status;
-		o.score = i.score;
-		o.chapters_read = i.chapters_read;
-		o.volumes_read = i.volumes_read;
+		// carry old over to new
+		if (i.synopsis == null) {
+			i.rank = o.rank;
+			i.popularity_rank = o.popularity_rank;
+			i.members_score = o.members_score;
+			i.members_count = o.members_count;
+			i.favorited_count = o.favorited_count;
+			i.synopsis = o.synopsis;
+			i.genres = o.genres;
+			i.tags = o.tags;
+			i.anime_adaptations = o.anime_adaptations;
+			i.alternative_versions = o.alternative_versions;
+		}
 	}
 
 	@Override
@@ -71,11 +79,11 @@ public class MangaServerInterface extends AbstractServerInterface {
 		o.chapters_read = 0;
 		o.volumes_read = 0;
 	}
-	
+
 	private static Intent getBaseIntent(Context ctx) {
 		return new Intent(ctx, MangaServerInterface.class);
 	}
-	
+
 	public static Intent getSyncIntent(Context ctx) {
 		return getSyncIntent(ctx, getBaseIntent(ctx));
 	}
@@ -89,7 +97,7 @@ public class MangaServerInterface extends AbstractServerInterface {
 	}
 
 	public static void getAnimeRecord(Context ctx, int id) {
-		getRecord(ctx, id, getBaseIntent(ctx) );
+		getRecord(ctx, id, getBaseIntent(ctx));
 	}
 
 	public static void addMangaRecord(Context ctx, int id) {

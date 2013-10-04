@@ -383,7 +383,7 @@ public abstract class AbstractServerInterface extends RoboIntentService {
 				if ( arOriginal != null ){
 					partialUpdate(arOriginal, ar);
 					
-					dao.createOrUpdate(arOriginal);
+					dao.createOrUpdate(ar);
 				} else {
 					dao.createOrUpdate(ar);
 				}

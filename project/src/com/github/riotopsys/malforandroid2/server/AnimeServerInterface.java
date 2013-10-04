@@ -21,6 +21,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.AlteredCharSequence;
 
 import com.github.riotopsys.malforandroid2.model.AnimeJournalEntry;
 import com.github.riotopsys.malforandroid2.model.AnimeListResponse;
@@ -56,9 +57,26 @@ public class AnimeServerInterface extends AbstractServerInterface {
 	protected void partialUpdate(BaseRecord original, BaseRecord incomming) {
 		AnimeRecord o = (AnimeRecord) original;
 		AnimeRecord i = (AnimeRecord) incomming;
-		o.watched_status = i.watched_status;
-		o.score = i.score;
-		o.watched_episodes = i.watched_episodes;
+		
+		//carry old over to new
+		if ( i.synopsis == null ){
+			i.rank = o.rank;
+			i.popularity_rank = o.popularity_rank;
+			i.classification = o.classification;
+			i.members_score = o.members_score;
+			i.members_count = o.members_count;
+			i.favorited_count = o.favorited_count;
+			i.synopsis = o.synopsis;
+			i.genres = o.genres;
+			i.tags = o.tags;
+			i.manga_adaptations = o.manga_adaptations;
+			i.prequels = o.prequels;
+			i.sequels = o.sequels;
+			i.side_stories = o.side_stories;
+			i.spin_offs = o.spin_offs;
+			i.summaries = o.summaries;
+			i.alternative_versions = o.alternative_versions;
+		}
 	}
 
 	@Override
