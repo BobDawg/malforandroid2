@@ -150,7 +150,10 @@ public class BaseRecordAdapter extends BaseAdapter implements SectionIndexer{
 		if ( section >= sections.length ){
 			return sections[sections.length-1].start;
 		}
-		return sections[section].start;
+		if ( sections[section] != null ){
+			return sections[section].start;
+		}
+		return 0;
 	}
 
 	@Override
