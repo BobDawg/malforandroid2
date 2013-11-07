@@ -1,5 +1,7 @@
 # DUE TO A POLICY CHANGE BY THE BACKING WEBSITE THIS PROJECT HAS BEEN RENDERED DEFUNCT
 
+[Yamadori][yama] will be replacing all MFA apps 
+
 # MALForAndroid 2
 
 Rewrite of the original MALForAndroid 
@@ -52,6 +54,7 @@ v1.1.0
 *	Adds Manga support
 *	Resolves Issue #1 - Changes number picker to take keyboard input.
 
+[yama]: https://github.com/riotopsys/Yamadori
 [api]: http://mal-api.com/  
 [contrib]: https://github.com/riotopsys/malforandroid2/contributors
 [cho_github]: http://github.com/chuyeow/myanimelist-api
