@@ -25,7 +25,7 @@ public class UrlBuilder {
 	private String baseUrl;
 
 	public UrlBuilder() {
-		baseUrl = "http://mal-api.com";
+		baseUrl = "http://mirai.riotopsys.net:12121";
 	}
 
 	public URL getAnimeListUrl(String username) throws MalformedURLException {
