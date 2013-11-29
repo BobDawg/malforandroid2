@@ -25,6 +25,10 @@ Current contributors can be found under the [Github contributors page][contrib]
 
 ## Changelog
 
+v1.4.0
+
+*	Attaching to new server
+
 v1.3.0
 
 *	changing ViewPagerAdapter to allow for dynamic page configuration
