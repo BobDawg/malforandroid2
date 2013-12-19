@@ -21,7 +21,6 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.AlteredCharSequence;
 
 import com.github.riotopsys.malforandroid2.model.AnimeJournalEntry;
 import com.github.riotopsys.malforandroid2.model.AnimeListResponse;

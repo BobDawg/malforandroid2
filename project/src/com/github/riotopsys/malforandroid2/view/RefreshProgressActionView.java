@@ -18,7 +18,7 @@ package com.github.riotopsys.malforandroid2.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -62,16 +62,25 @@ public class RefreshProgressActionView extends FrameLayout {
 	}
 
 	private void init() {
+		setLayoutParams(new LayoutParams(
+				(int) getResources().getDimension(R.dimen.action_button_min_width), 
+				LayoutParams.WRAP_CONTENT));
+		
 		icon = new ImageView(getContext());
 		icon.setImageResource(R.drawable.ic_menu_refresh);
-		icon.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT));
+		icon.setLayoutParams(new LayoutParams(
+				LayoutParams.WRAP_CONTENT, 
+				LayoutParams.WRAP_CONTENT, 
+				Gravity.CENTER));
 		icon.setOnClickListener(internalOnClickListener);
 		addView(icon);
 
 		progress = new ProgressBar(getContext(), null,
 				android.R.attr.progressBarStyle);
-		progress.setLayoutParams(new LayoutParams(dp(32), dp(32)));
+		progress.setLayoutParams(new LayoutParams(
+				(int) getResources().getDimension(R.dimen.indeterminate_progress_size), 
+				(int) getResources().getDimension(R.dimen.indeterminate_progress_size),
+				Gravity.CENTER));
 		progress.setVisibility(View.INVISIBLE);
 		addView(progress);
 	}
@@ -96,10 +105,4 @@ public class RefreshProgressActionView extends FrameLayout {
 			icon.setVisibility(View.VISIBLE);
 		}
 	}
-
-	private int dp(int dpValue) {
-		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-				dpValue, getResources().getDisplayMetrics());
-	}
-
 }
