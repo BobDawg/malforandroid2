@@ -46,7 +46,7 @@ public class BootReciever extends RoboBroadcastReceiver {
 		
 		PendingIntent piManga = PendingIntent.getService(
 				ctx.getApplicationContext(), 0,
-				AnimeServerInterface.getSyncIntent(ctx),
+				MangaServerInterface.getSyncIntent(ctx),
 				PendingIntent.FLAG_UPDATE_CURRENT);
 
 		AlarmManager am = (AlarmManager) ctx

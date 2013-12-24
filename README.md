@@ -8,7 +8,7 @@ Simple app for managing your anime list via a android 4.0+ device. Earlier devic
 
 ## Licence
 
-MALForAndroid 2 is licenced under:   
+MALForAndroid 2 is licensed under:   
 Apache License Version 2.0, January 2004
 
 ## Special Thanks
@@ -24,6 +24,11 @@ If you want to contribute to MALForAndroid 2, just fork and submit a pull reques
 Current contributors can be found under the [Github contributors page][contrib]
 
 ## Changelog
+
+v1.4.1
+
+*	fixed spacing on refresh button (thanks BobDawg)
+*	fixed manga sync issue
 
 v1.4.0
 
