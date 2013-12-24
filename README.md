@@ -29,6 +29,7 @@ v1.4.1
 
 *	fixed spacing on refresh button (thanks BobDawg)
 *	fixed manga sync issue
+*	moved delete item option into overflow menu (it's to easy to accidentally delete an item)
 
 v1.4.0
 
